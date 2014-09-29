@@ -1,7 +1,6 @@
 # Determine whether a string is composed solely of unique characters or not.
 
 def unique_n2(str1):
-    chars = list(str1)
     for a in chars:
         matches = 0
         for b in chars:
@@ -12,16 +11,15 @@ def unique_n2(str1):
     return True
 
 def unique(str1):
-    chars = list(str1)
-    unique = []
-    for a in chars:
+    unique = set()
+    for a in str1:
         if a in unique:
             return False
-        unique.append(a)
+        unique.add(a)
     return True
 
 def unique_python(str1):
-    if len(list(str1)) == len(set(str1)):
+    if len(str1) == len(set(str1)):
         return True
     return False
 

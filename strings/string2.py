@@ -1,9 +1,11 @@
 # Determine whether a string is composed solely of unique characters or not.
 
+import timeit
+
 def unique_n2(str1):
-    for a in chars:
+    for a in str1:
         matches = 0
-        for b in chars:
+        for b in str1:
             if a == b:
                 matches += 1
         if matches > 1:
@@ -26,10 +28,14 @@ def unique_python(str1):
 print 'O(n^2) implementation'
 print unique_n2('abcde')
 print unique_n2('abccde')
-print 'Pythonic implementation'
-print unique_python('abcde')
-print unique_python('abcdde')
+print timeit.timeit(lambda: unique_n2('abccde'))
+
 print 'O(n) implementation'
 print unique('abcde')
 print unique('abcdde')
+print timeit.timeit(lambda: unique('abccde'))
 
+print 'Pythonic implementation'
+print unique_python('abcde')
+print unique_python('abcdde')
+print timeit.timeit(lambda: unique_python('abccde'))
